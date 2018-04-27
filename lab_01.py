@@ -27,36 +27,37 @@ def linear_search(A, x):
 	for i in range(0,len(A)):
 		if A[i] == x:
 			return i
-		else:
-			return -1
+	return -1
 
 
 #def binary_search(A, x):
 def binary_search(A, x):
+	nil = -1
 	start = 0
-	end = len(A)
+	end = len(A)-1
 	
 	while start < end:
 		mid = (start+end)/2
 		if A[mid] == x:
 			return mid
-		elif A[mid] == x:
-			start = mid +1
+		elif A[mid] < x:
+			start = mid + 1
 		else:
-			end = mid -1
+			end = mid - 1
+	
 	if A[start] == x:
 		return start
 	else:
-		return -1
+		return nil
 			
 
 
 #def insertion_sort(A):
 def insertion_sort(A):
-	for j in range(0,len(A)): 
+	for j in range(1,len(A)): 
 		key = A[j]
 		i = j - 1
-		while i >= 1 and A[i] > key:
+		while i >= 0 and A[i] > key:
 			A[i+1] = A[i]
 			i = i - 1
 		A[i+1] = key
@@ -66,7 +67,7 @@ def insertion_sort(A):
 
 
 # leer los datos y preparar variables para correr experimentos
-data = read_file('/home/invitado/CI2692-DanielM/CI-2692-Lab01-master/data/english.txt')
+data = read_file('/home/danimax/Documentos/CI-2692-Lab01-master/data/carnet.txt')
 sizes = [ 2**i for i in range(16) ]
 runs_per_each_size = 10
 fractions = [ .5, .05, .005, .0005]

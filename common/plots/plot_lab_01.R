@@ -2,7 +2,7 @@ library(plyr)
 library(ggplot2)
 
 # read raw data from file
-raw.data = read.csv('data.csv', header = T)
+raw.data = read.csv('data1.csv', header = T)
 
 # for making plots with facets (~ operator), need the to put data in proper format
 data.avg = ddply(raw.data, c('type', 'name', 'size'), summarise, n = length(i), time = mean(time), error = 1.0 - mean(verification))
